@@ -23,6 +23,5 @@ echo "Connecting to $INPUT_REMOTE_HOST..."
 ssh-keyscan $INPUT_REMOTE_HOST >> $HOME/.ssh/known_hosts
 
 docker context create --docker host=ssh://root@$INPUT_REMOTE_HOST swarm
-docker context use swarm
 
 exec $@

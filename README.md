@@ -12,7 +12,7 @@ Below is a brief example on how the action can be used:
   with:
     remote_host: swarm.server.com
     ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-    args: docker stack deploy -c stack.yml coolapp
+    args: docker --context swarm stack deploy -c stack.yml coolapp
 ```
 
 If you are deploying any private Docker images, you can use the [Docker Login](https://github.com/marketplace/actions/docker-login) action to first log in to your private registry, and then provide the `--with-registry-auth` flag to `docker stack deploy` to use the logged in credentials during deployment.
@@ -31,7 +31,7 @@ This must be a manager node in your swarm for most operations to work.
 
 ### `ssh_private_key`
 
-When connecting to Docker over SSH, this must contain the SSH private key to use to connect.
+When connecting to Docker over SSH, this must contain the SSH private key to use to connect. To generate keypair need to use `ssh-keygen -m PEM -t rsa -P ""`
 
 ## License
 
