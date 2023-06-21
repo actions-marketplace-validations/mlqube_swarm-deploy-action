@@ -1,4 +1,5 @@
 #!/bin/sh
+
 set -eu
 
 if [ -z "$INPUT_REMOTE_HOST" ]; then
@@ -20,8 +21,8 @@ eval $(ssh-agent)
 ssh-add "$HOME/.ssh/docker"
 
 echo "Connecting to $INPUT_REMOTE_HOST..."
-ssh-keyscan $INPUT_REMOTE_HOST >> $HOME/.ssh/known_hosts
+ssh-keyscan $INPUT_REMOTE_HOST >> /etc/ssh/ssh_known_hosts
 
-docker context create --docker host=ssh://root@$INPUT_REMOTE_HOST swarm
+docker -l debug context create --docker host=ssh://root@$INPUT_REMOTE_HOST swarm
 
 exec $@
