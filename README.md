@@ -12,6 +12,8 @@ Below is a brief example on how the action can be used:
   with:
     remote_host: swarm.server.com
     ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+    registry_username: ${{ secrets.DOCKERHUB_USERNAME }}
+    registry_password: ${{ secrets.DOCKERHUB_TOKEN }}
     args: docker --context swarm stack deploy -c stack.yml coolapp
 ```
 
@@ -32,6 +34,14 @@ This must be a manager node in your swarm for most operations to work.
 ### `ssh_private_key`
 
 When connecting to Docker over SSH, this must contain the SSH private key to use to connect. To generate keypair need to use `ssh-keygen -m PEM -t rsa -P ""`
+
+### `registry_username`
+
+Docker Registry username
+
+### `registry_password`
+
+Docker Registry password
 
 ## License
 
