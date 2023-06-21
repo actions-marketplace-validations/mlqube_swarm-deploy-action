@@ -7,7 +7,7 @@ inputs:
     required: true
   ssh_private_key:
     description: SSH private key to use to connect
-    required: false
+    required: true
 runs:
   using: docker
   image: Dockerfile
