@@ -11,11 +11,6 @@ if [ -z "$INPUT_SSH_PRIVATE_KEY" ]; then
     exit 1
 fi
 
-if [ -z "$INPUT_SSH_PUBLIC_KEY" ]; then
-    echo "Input ssh_public_key is required for SSH hosts!"
-    exit 1
-fi
-
 echo "Registering SSH keys..."
 
 mkdir -p "$HOME/.ssh"
